@@ -9,7 +9,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 MONGO_DB_URI = os.getenv("MONGO_DB_URI")
-print(MONGO_DB_URI)
+if not MONGO_DB_URI:
+    raise ValueError("MONGO_DB_URI is not set. Add it to .env or your environment.")
 
 import certifi
 ce=certifi.where()
